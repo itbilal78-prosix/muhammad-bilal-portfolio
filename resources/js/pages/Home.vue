@@ -8,7 +8,6 @@
       <div class="hero-bg">
         <span class="orb orb-1"></span>
         <span class="orb orb-2"></span>
-        <span class="orb orb-3"></span>
 
         <span class="float-code code-1">Laravel</span>
         <span class="float-code code-2">Vue.js</span>
@@ -37,7 +36,6 @@
         <div class="hero-btns">
           <a href="#contact" class="btn-primary">Hire Me</a>
           <a href="#projects" class="btn-outline">View Work →</a>
-
           <a
             href="/Muhammad-Bilal-Resume.pdf"
             download="Muhammad-Bilal-Resume.pdf"
@@ -79,18 +77,16 @@
           <h2 class="sec-title">Services I Deliver</h2>
           <p class="sec-sub powerful">
             From idea to deployment, I build secure, scalable, and modern digital
-            solutions using Laravel, Vue.js, Flutter, and MySQL. Every project is
-            optimized for performance, maintainability, and long-term business growth.
+            solutions using Laravel, Vue.js, Flutter, and MySQL.
           </p>
         </div>
 
-        <div class="services-grid premium-services">
+        <div class="services-grid">
           <div v-for="svc in services" :key="svc.num" class="svc-card">
             <div class="svc-icon">{{ svc.icon }}</div>
             <div class="svc-num">{{ svc.num }}</div>
             <div class="svc-name">{{ svc.name }}</div>
             <div class="svc-desc">{{ svc.desc }}</div>
-            <div class="svc-more">Learn More →</div>
           </div>
         </div>
       </div>
@@ -99,10 +95,10 @@
     <section class="section" id="projects">
       <div class="container">
         <div class="sec-label">Work</div>
-        <h2 class="sec-title">Selected projects</h2>
+        <h2 class="sec-title">Selected Projects</h2>
         <p class="sec-sub">
           A sample of what I've shipped — from real-time customization tools
-          to booking platforms.
+          to mobile applications.
         </p>
 
         <div class="projects-grid">
@@ -124,7 +120,6 @@
       <div class="container">
         <div class="sec-label">Background</div>
         <h2 class="sec-title">Experience</h2>
-        <p class="sec-sub">Three roles across agencies and product companies.</p>
 
         <div class="exp-list">
           <div v-for="exp in experiences" :key="exp.company" class="exp-item">
@@ -145,7 +140,7 @@
     <section class="section">
       <div class="container">
         <div class="sec-label">Skills</div>
-        <h2 class="sec-title">Daily toolkit</h2>
+        <h2 class="sec-title">Daily Toolkit</h2>
 
         <div class="skills-wrap">
           <div v-for="group in skillGroups" :key="group.label" class="skill-group">
@@ -174,7 +169,7 @@
           </p>
 
           <div class="cta-actions">
-            <a href="mailto:itbilal73@gmail.com" class="btn-primary">Start a project</a>
+            <a href="mailto:itbilal73@gmail.com" class="btn-primary">Start a Project</a>
             <a href="tel:03015825174" class="btn-outline">📞 0301-5825174</a>
           </div>
         </div>
@@ -184,7 +179,7 @@
     <footer class="footer">
       <div class="container footer-inner">
         <span>© 2026 Muhammad Bilal — Full-Stack Developer</span>
-        <span>Built with Laravel · Vue · Tailwind</span>
+        <span>Built with Laravel · Vue · Flutter</span>
       </div>
     </footer>
   </div>
@@ -201,7 +196,6 @@ let animationId = null
 const resizeCanvas = () => {
   const canvas = trailCanvas.value
   if (!canvas) return
-
   canvas.width = canvas.offsetWidth
   canvas.height = canvas.offsetHeight
 }
@@ -214,14 +208,14 @@ const addParticles = (e) => {
   const x = e.clientX - rect.left
   const y = e.clientY - rect.top
 
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < 3; i++) {
     particles.push({
       x,
       y,
-      size: Math.random() * 3 + 1,
-      speedX: (Math.random() - 0.5) * 4,
-      speedY: (Math.random() - 0.5) * 4,
-      life: 1,
+      size: Math.random() * 2.2 + 0.8,
+      speedX: (Math.random() - 0.5) * 2,
+      speedY: (Math.random() - 0.5) * 2,
+      life: 0.7,
     })
   }
 }
@@ -239,11 +233,9 @@ const animateTrail = () => {
 
     ctx.beginPath()
     ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2)
-    // ctx.fillStyle = `rgba(255, 45, 110, ${p.life})`
-    //     ctx.shadowColor = '#ff2d6e'
     ctx.fillStyle = `rgba(245, 166, 35, ${p.life})`
-ctx.shadowColor = '#f5a623'
-    ctx.shadowBlur = 18
+    ctx.shadowBlur = 14
+    ctx.shadowColor = '#f5a623'
     ctx.fill()
 
     if (p.life <= 0) particles.splice(index, 1)
@@ -267,14 +259,10 @@ onMounted(() => {
 
 onBeforeUnmount(() => {
   window.removeEventListener('resize', resizeCanvas)
-
   if (trailCanvas.value) {
     trailCanvas.value.removeEventListener('mousemove', addParticles)
   }
-
-  if (animationId) {
-    cancelAnimationFrame(animationId)
-  }
+  if (animationId) cancelAnimationFrame(animationId)
 })
 
 const tickerSkills = [
@@ -297,13 +285,13 @@ const services = [
     num: '02',
     icon: '🔐',
     name: 'REST API Development',
-    desc: 'Fast, secure and well-documented REST APIs with authentication, payment gateways and third-party integrations.',
+    desc: 'Fast, secure and clean REST APIs with authentication, payment gateways and third-party integrations.',
   },
   {
     num: '03',
     icon: '🎨',
     name: 'Frontend Development',
-    desc: 'Responsive, pixel-perfect user interfaces using Vue.js, Tailwind CSS and Bootstrap with smooth user experience.',
+    desc: 'Responsive, pixel-perfect interfaces using Vue.js, Tailwind CSS and Bootstrap with smooth user experience.',
   },
   {
     num: '04',
@@ -377,14 +365,14 @@ const experiences = [
     location: 'Lahore',
     company: 'Technology Brainz',
     role: 'WordPress Developer',
-    detail: 'Developed responsive WordPress sites with Elementor, custom themes, and optimization.',
+    detail: 'Developed responsive WordPress websites with Elementor, custom themes, optimization and maintenance.',
   },
   {
     date: 'Aug 2023 — Jun 2025',
     location: 'Lahore',
     company: 'Intelliage Solutions',
     role: 'Laravel Developer',
-    detail: 'Built Laravel apps, REST APIs, and improved security, stability, and performance.',
+    detail: 'Built Laravel applications, REST APIs, and improved security, stability, and performance.',
   },
 ]
 
@@ -411,12 +399,13 @@ const skillGroups = [
 <style scoped>
 :global(:root) {
   --bg-main: #0d1117;
-  --bg-soft: #161b22;
+  --bg-soft: #151a21;
   --card-bg: #161b22;
   --text-main: #e6edf3;
-  --text-muted: #8b949e;
-  --border: #30363d;
+  --text-muted: #9aa4b2;
+  --border: #2f3742;
   --gold: #f5a623;
+  --gold-soft: rgba(245, 166, 35, 0.12);
   --nav-bg: rgba(13, 17, 23, 0.92);
 }
 
@@ -428,6 +417,7 @@ const skillGroups = [
   --text-muted: #5f6673;
   --border: #d8d8d8;
   --gold: #c88412;
+  --gold-soft: rgba(200, 132, 18, 0.12);
   --nav-bg: rgba(255, 255, 255, 0.92);
 }
 
@@ -445,7 +435,6 @@ const skillGroups = [
   font-family: 'Inter', system-ui, sans-serif;
   line-height: 1.6;
   min-height: 100vh;
-  transition: 0.3s ease;
 }
 
 .container {
@@ -477,13 +466,13 @@ const skillGroups = [
 .hero-bg {
   position: absolute;
   inset: 0;
-  pointer-events: none;
   overflow: hidden;
   z-index: 0;
+  pointer-events: none;
   background:
-    radial-gradient(circle at 20% 20%, rgba(245, 166, 35, 0.13), transparent 28%),
-    radial-gradient(circle at 80% 30%, rgba(124, 58, 237, 0.16), transparent 30%),
-    radial-gradient(circle at 50% 80%, rgba(34, 197, 94, 0.11), transparent 28%);
+    radial-gradient(circle at 18% 25%, rgba(245, 166, 35, 0.12), transparent 26%),
+    radial-gradient(circle at 82% 30%, rgba(245, 166, 35, 0.08), transparent 28%),
+    linear-gradient(180deg, rgba(255,255,255,0.025), transparent);
 }
 
 .hero-bg::before {
@@ -493,42 +482,33 @@ const skillGroups = [
   background-image:
     linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
-  background-size: 48px 48px;
-  mask-image: radial-gradient(circle, #000 35%, transparent 78%);
+  background-size: 52px 52px;
+  mask-image: radial-gradient(circle, #000 30%, transparent 78%);
 }
 
 .orb {
   position: absolute;
   border-radius: 50%;
-  filter: blur(45px);
-  opacity: 0.35;
-  animation: floatOrb 9s ease-in-out infinite;
+  filter: blur(55px);
+  opacity: 0.22;
+  animation: floatOrb 10s ease-in-out infinite;
 }
 
 .orb-1 {
   width: 260px;
   height: 260px;
-  background: #f5a623;
+  background: var(--gold);
   top: 16%;
   right: 12%;
 }
 
 .orb-2 {
-  width: 200px;
-  height: 200px;
-  background: #7c3aed;
+  width: 220px;
+  height: 220px;
+  background: var(--gold);
   bottom: 18%;
   left: 10%;
   animation-delay: 2s;
-}
-
-.orb-3 {
-  width: 180px;
-  height: 180px;
-  background: #22c55e;
-  top: 55%;
-  right: 30%;
-  animation-delay: 4s;
 }
 
 @keyframes floatOrb {
@@ -536,7 +516,7 @@ const skillGroups = [
     transform: translateY(0) scale(1);
   }
   50% {
-    transform: translateY(-28px) scale(1.08);
+    transform: translateY(-24px) scale(1.05);
   }
 }
 
@@ -544,49 +524,21 @@ const skillGroups = [
   position: absolute;
   color: var(--gold);
   font-family: monospace;
-  font-size: 15px;
-  border: 1px solid rgba(245, 166, 35, 0.25);
-  background: rgba(245, 166, 35, 0.08);
-  padding: 8px 14px;
+  font-size: 13px;
+  border: 1px solid rgba(245, 166, 35, 0.22);
+  background: rgba(245, 166, 35, 0.07);
+  padding: 7px 13px;
   border-radius: 999px;
   animation: floatCode 8s ease-in-out infinite;
   backdrop-filter: blur(8px);
 }
 
-.code-1 {
-  top: 20%;
-  right: 16%;
-}
-
-.code-2 {
-  top: 38%;
-  right: 7%;
-  animation-delay: 1s;
-}
-
-.code-3 {
-  bottom: 26%;
-  right: 19%;
-  animation-delay: 2s;
-}
-
-.code-4 {
-  top: 68%;
-  left: 8%;
-  animation-delay: 3s;
-}
-
-.code-5 {
-  top: 25%;
-  left: 12%;
-  animation-delay: 4s;
-}
-
-.code-6 {
-  bottom: 18%;
-  left: 22%;
-  animation-delay: 5s;
-}
+.code-1 { top: 21%; right: 17%; }
+.code-2 { top: 39%; right: 8%; animation-delay: 1s; }
+.code-3 { bottom: 27%; right: 18%; animation-delay: 2s; }
+.code-4 { top: 68%; left: 9%; animation-delay: 3s; }
+.code-5 { top: 25%; left: 13%; animation-delay: 4s; }
+.code-6 { bottom: 18%; left: 22%; animation-delay: 5s; }
 
 @keyframes floatCode {
   0%, 100% {
@@ -594,8 +546,8 @@ const skillGroups = [
     opacity: 0.55;
   }
   50% {
-    transform: translateY(-18px);
-    opacity: 1;
+    transform: translateY(-14px);
+    opacity: 0.9;
   }
 }
 
@@ -634,8 +586,8 @@ const skillGroups = [
 
 .hero-h1 {
   font-size: clamp(36px, 4vw, 70px);
-  font-weight: 700;
-  line-height: 1.05;
+  font-weight: 800;
+  line-height: 1.06;
   letter-spacing: -2px;
   margin-bottom: 24px;
 }
@@ -643,7 +595,7 @@ const skillGroups = [
 .hero-h1 em {
   font-style: normal;
   color: var(--gold);
-  text-shadow: 0 0 35px rgba(245, 166, 35, 0.25);
+  text-shadow: 0 0 28px rgba(245, 166, 35, 0.18);
 }
 
 .hero-desc {
@@ -662,45 +614,49 @@ const skillGroups = [
   margin-bottom: 52px;
 }
 
-.btn-primary {
-  background: var(--gold);
-  color: #0d1117;
+.btn-primary,
+.btn-outline {
   font-size: 14px;
   font-weight: 800;
   padding: 13px 30px;
-  border-radius: 9px;
+  border-radius: 10px;
   text-decoration: none;
   display: inline-block;
-  box-shadow: 0 14px 40px rgba(245, 166, 35, 0.2);
+  transition: all 0.28s ease;
+}
+
+.btn-primary {
+  background: var(--gold);
+  color: #0d1117;
+  border: 1.5px solid var(--gold);
+  box-shadow: 0 12px 32px rgba(245, 166, 35, 0.18);
+}
+
+.btn-primary:hover {
+  background: transparent;
+  color: var(--gold);
+  transform: translateY(-2px);
+  box-shadow: 0 0 24px rgba(245, 166, 35, 0.28);
 }
 
 .btn-outline {
-  border: 1.5px solid var(--border);
+  background: rgba(255, 255, 255, 0.02);
   color: var(--text-main);
-  font-size: 14px;
-  font-weight: 600;
-  padding: 13px 30px;
-  border-radius: 9px;
-  text-decoration: none;
-  display: inline-block;
+  border: 1.5px solid var(--border);
+}
+
+.btn-outline:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #0d1117;
+  transform: translateY(-2px);
+  box-shadow: 0 0 22px rgba(245, 166, 35, 0.22);
 }
 
 .resume-btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-}
-
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 18px 50px rgba(245, 166, 35, 0.28);
-}
-
-.btn-outline:hover,
-.resume-btn:hover {
-  border-color: #ffce2d;
-  color: #ff2d6e;
-  box-shadow: 0 0 25px rgba(255, 45, 110, 0.25);
 }
 
 .stats-row {
@@ -717,6 +673,12 @@ const skillGroups = [
   border-radius: 16px;
   padding: 18px;
   text-align: left;
+  transition: all 0.28s ease;
+}
+
+.stat:hover {
+  border-color: rgba(245, 166, 35, 0.55);
+  transform: translateY(-4px);
 }
 
 .stat .num {
@@ -762,12 +724,8 @@ const skillGroups = [
 }
 
 @keyframes ticker {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 .section {
@@ -775,12 +733,11 @@ const skillGroups = [
 }
 
 .services-section {
-  position: relative;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
   background:
-    radial-gradient(circle at top left, rgba(245, 166, 35, 0.08), transparent 35%),
-    linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+    radial-gradient(circle at top left, rgba(245, 166, 35, 0.06), transparent 35%),
+    linear-gradient(180deg, rgba(255,255,255,0.018), transparent);
 }
 
 .section-head.center {
@@ -837,51 +794,31 @@ const skillGroups = [
 .svc-card,
 .proj-card,
 .cta-box {
-  background: linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.018));
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.016));
   border: 1px solid var(--border);
   border-radius: 20px;
   padding: 26px;
-  transition: 0.3s ease;
-}
-
-.svc-card {
-  min-height: 260px;
-  position: relative;
-  overflow: hidden;
-}
-
-.svc-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at top right, rgba(245, 166, 35, 0.18), transparent 35%);
-  opacity: 0;
-  transition: 0.3s ease;
-}
-
-.svc-card:hover::before {
-  opacity: 1;
+  transition: all 0.28s ease;
 }
 
 .svc-card:hover,
 .proj-card:hover {
-  border-color: var(--gold);
-  transform: translateY(-7px);
-  box-shadow: 0 20px 55px rgba(0, 0, 0, 0.22);
+  border-color: rgba(245, 166, 35, 0.55);
+  transform: translateY(-5px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
 }
 
 .svc-icon {
   width: 46px;
   height: 46px;
   border-radius: 14px;
-  background: rgba(245, 166, 35, 0.12);
+  background: var(--gold-soft);
+  color: var(--gold);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 20px;
   margin-bottom: 22px;
-  position: relative;
-  z-index: 1;
 }
 
 .svc-num {
@@ -889,8 +826,6 @@ const skillGroups = [
   font-size: 12px;
   color: var(--text-muted);
   margin-bottom: 8px;
-  position: relative;
-  z-index: 1;
 }
 
 .svc-name,
@@ -898,8 +833,6 @@ const skillGroups = [
   font-size: 18px;
   font-weight: 800;
   margin-bottom: 10px;
-  position: relative;
-  z-index: 1;
 }
 
 .svc-desc,
@@ -908,17 +841,6 @@ const skillGroups = [
   font-size: 14px;
   color: var(--text-muted);
   line-height: 1.75;
-  position: relative;
-  z-index: 1;
-}
-
-.svc-more {
-  margin-top: 18px;
-  color: var(--gold);
-  font-size: 13px;
-  font-weight: 800;
-  position: relative;
-  z-index: 1;
 }
 
 .proj-header {
@@ -944,8 +866,8 @@ const skillGroups = [
 }
 
 .tag {
-  background: rgba(245, 166, 35, 0.1);
-  border: 0.5px solid rgba(245, 166, 35, 0.25);
+  background: rgba(245, 166, 35, 0.08);
+  border: 1px solid rgba(245, 166, 35, 0.22);
   color: var(--gold);
   font-size: 11px;
   font-weight: 600;
@@ -1030,7 +952,7 @@ const skillGroups = [
   align-items: center;
   gap: 8px;
   font-size: 12px;
-  color: #3fb950;
+  color: var(--gold);
   font-family: monospace;
   margin-bottom: 20px;
 }
@@ -1039,17 +961,13 @@ const skillGroups = [
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #3fb950;
+  background: var(--gold);
   animation: pulse 2s infinite;
 }
 
 @keyframes pulse {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.3;
-  }
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
 }
 
 .cta-actions {
