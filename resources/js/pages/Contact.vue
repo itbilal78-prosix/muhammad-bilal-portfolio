@@ -130,14 +130,14 @@
           </div>
 
           <div class="social-links">
-            <a
+            <!-- <a
               href="https://github.com/itbilal78-prosix"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub"
             >
               <i class="fa-brands fa-github"></i>
-            </a>
+            </a> -->
 
             <a
               href="https://www.linkedin.com/"
