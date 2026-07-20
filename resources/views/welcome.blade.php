@@ -2,11 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+
+    <meta name="google-site-verification" content="Rt2dI39xzGk-C107pEUoImzbCmXP1tdjgz1US1LQlZ8" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Muhammad Bilal Portfolio</title>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
+
 <body>
     <div id="app"></div>
 </body>
